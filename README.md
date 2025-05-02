@@ -4,7 +4,7 @@ A sleek and responsive weather application that provides real-time weather updat
 
 ## 🚀 Live Demo
 
-Experience the live application here: [penguinweather2.vercel.app](https://weather-app-phi-ten-65.vercel.app)
+Experience the live application here: [penguinweather2.vercel.app](https://penguinweather2.vercel.app)
 
 ## 🛠️ Features
 

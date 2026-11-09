@@ -132,3 +132,29 @@
     transform: scale(0.95);
   }
 }
+
+/* Custom horizontal scrollbar for forecast slider */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 7px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(224, 231, 255, 0.45);
+  border-radius: 9999px;
+  margin: 0 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(147, 197, 253, 0.75);
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.9);
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(147, 197, 253, 0.75) rgba(224, 231, 255, 0.45);
+}

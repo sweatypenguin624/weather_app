@@ -132,3 +132,33 @@
     transform: scale(0.95);
   }
 }
+
+/* Weather content appears smoothly */
+
+@keyframes weatherFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle floating movement */
+
+@keyframes weatherFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

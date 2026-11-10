@@ -1,3 +1,6 @@
+import CurrentWeather from './CurrentWeather';
+import { dummyWeatherData } from '../data/WeatherData';
+import { getWeatherTheme } from "./WeatherTheme";
 import React, { useState, useEffect } from 'react';
 import LocationRequest from './LocationRequest';
 import WeatherResult from './WeatherResult';
@@ -21,6 +24,7 @@ const WeatherApp: React.FC = () => {
   const [loadingPercentage, setLoadingPercentage] = useState(0);
   const [loadingStatus, setLoadingStatus] = useState("");
   const { toast } = useToast();
+  const theme = getWeatherTheme(dummyWeatherData.condition); // Get theme based on current weather condition
 
   // Progress through loading steps
   useEffect(() => {
@@ -109,7 +113,11 @@ const WeatherApp: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-300 via-blue-100 to-white flex flex-col items-center justify-start pt-10 md:pt-16 pb-16 px-4">
+    <div
+  className={`min-h-screen w-full ${
+    theme.pageBackground
+  } flex flex-col items-center justify-start pt-10 md:pt-16 pb-16 px-4 transition-colors duration-1000`}
+>
       <div className="text-center mb-8 slide-up">
         <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400 drop-shadow-md">
           SkyCheck Weather
@@ -119,7 +127,8 @@ const WeatherApp: React.FC = () => {
         </p>
       </div>
       
-      <Card className="w-full max-w-md bg-white/70 backdrop-blur-sm border-white/50 shadow-xl rounded-3xl overflow-hidden">
+      
+      <Card className="w-full max-w-2xl bg-white/70 backdrop-blur-sm border-white/50 shadow-xl rounded-3xl overflow-hidden">
         <div className="bg-gradient-to-r from-blue-500 to-blue-400 h-3"></div>
         <CardContent className="p-0">
           {!location ? (
@@ -130,7 +139,7 @@ const WeatherApp: React.FC = () => {
               loadingStatus={loadingStatus}
             />
           ) : (
-            <WeatherResult location={location} />
+            <CurrentWeather weather={dummyWeatherData} />    
           )}
         </CardContent>
       </Card>
